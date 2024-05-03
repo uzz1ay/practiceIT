@@ -371,17 +371,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
-    <None Include="Resources\Screenshot_6.png" />
-    <None Include="Resources\Rectangle 5.png" />
-    <None Include="Resources\Group 41.png" />
-    <None Include="Resources\Group 31.png" />
-    <None Include="Resources\Group 4.png" />
-    <None Include="Resources\Group 3.png" />
-    <None Include="Resources\Group 2.png" />
-    <None Include="Resources\Frame 1.png" />
-    <None Include="Resources\d5e6c665587307.5af9cdb2771f1.png" />
-    <None Include="Resources\Component 2.png" />
-    <None Include="Resources\Screenshot_7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
