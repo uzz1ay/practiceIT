@@ -23,20 +23,13 @@ namespace MaketUP
         public Form1()
         {
             InitializeComponent();
-            ComponentRounder.SetRoundedShape(textBox1, 15);
-            ComponentRounder.SetRoundedShape(textBox2, 15);
-            ComponentRounder.SetRoundedShape(panel1, 15);
-            ComponentRounder.SetRoundedShape(panel2, 30);
-            ComponentRounder.SetRoundedShape(panel3, 30);
-            ComponentRounder.SetRoundedShape(panel4, 30);
-            ComponentRounder.SetRoundedShape(panel5, 30);
-            textBox1.Text = ClassStorage.login;
-            textBox2.Text = ClassStorage.password;
-            if (textBox1.Text == "" || textBox2.Text == "")
+
+            guna2TextBox2.Text = ClassStorage.login;
+            guna2TextBox3.Text = ClassStorage.password;
+            if (guna2TextBox3.Text == "" || guna2TextBox2.Text == "")
             {
                 // Установка текстовых подсказок
-                HintManager.SetHint(textBox1, "Введите логин");
-                HintManager.SetHint(textBox2, "123456789");
+                HintManager.SetHint(guna2TextBox2, "Введите логин");
             }
             
 
@@ -57,19 +50,24 @@ namespace MaketUP
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            guna2TextBox3.UseSystemPasswordChar = true;
 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            HintManager.SetHint(textBox1, "Введите почту");
+            
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+           
+            
+        }
 
-            HintManager.SetHint(textBox1, "Введите номер телефона");
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+           
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -83,8 +81,8 @@ namespace MaketUP
         private void button1_Click(object sender, EventArgs e)
         {
             
-            string login = textBox1.Text;
-            string password = textBox2.Text;
+            string login = guna2TextBox2.Text;
+            string password = guna2TextBox3.Text;
             if (checkBox1.Checked)
             {
                 ClassStorage.login = login;
@@ -126,33 +124,72 @@ namespace MaketUP
                     }
                     else
                     {
-                        MessageBox.Show("Не удалось найти пользователя.");
+                        using (NpgsqlConnection conn2 = new NpgsqlConnection(connectionString))
+                        {
+                            conn2.Open();
+                            string query2 = "SELECT EXISTS(SELECT * FROM Администратор WHERE Номер_телефона=@login AND Пароль=@password)";
+                            using (NpgsqlCommand cmd2 = new NpgsqlCommand(query2, conn2))
+                            {
+                                cmd2.Parameters.AddWithValue("@login", login);
+                                cmd2.Parameters.AddWithValue("@password", password);
+                                bool result2 = (bool)cmd2.ExecuteScalar();
+                                if (result2)
+                                {
+                                    MessageBox.Show("Авторизовано!");
+                                    this.Hide();
+                                    FormMenu form = new FormMenu();
+                                    Closed += (s, args) => this.Close();
+                                    form.Show();
+                                }
+                                else
+                                {
+                                    using (NpgsqlConnection conn3 = new NpgsqlConnection(connectionString))
+                                    {
+                                        conn3.Open();
+                                        string query3 = "SELECT EXISTS(SELECT * FROM Администратор WHERE Почта=@login AND Пароль=@password)";
+                                        using (NpgsqlCommand cmd3 = new NpgsqlCommand(query3, conn3))
+                                        {
+                                            cmd3.Parameters.AddWithValue("@login", login);
+                                            cmd3.Parameters.AddWithValue("@password", password);
+                                            bool result3 = (bool)cmd3.ExecuteScalar();
+                                            if (result3)
+                                            {
+                                                MessageBox.Show("Авторизовано!");
+                                                this.Hide();
+                                                FormMenu form = new FormMenu();
+                                                Closed += (s, args) => this.Close();
+                                                form.Show();
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Не удалось найти пользователя.");
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
             
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
-            HintManager.SetHint(textBox1, "Введите логин");
-        }
-        private bool statusPasswordChar = false;
+        
+        private bool statusPasswordChar = true;
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             statusPasswordChar = !statusPasswordChar;
-            if (!statusPasswordChar)
+            guna2TextBox3.UseSystemPasswordChar = statusPasswordChar;
+            if (statusPasswordChar == true)
             {
                 string imagePath = @"C:/Users/stud/Desktop/MaketUP/MaketUP/Resources/icons8-eye-100.png";
                 button4.BackgroundImage = Image.FromFile(imagePath);
-                textBox2.UseSystemPasswordChar = false;
             }
-            if(statusPasswordChar)
+            if(statusPasswordChar == false)
             {
                 string imagePath = @"C:/Users/stud/Desktop/MaketUP/MaketUP/Resources/icons8-closed-eye-100.png";
                 button4.BackgroundImage = Image.FromFile(imagePath);
-                textBox2.UseSystemPasswordChar = true;
             }
             
         }
