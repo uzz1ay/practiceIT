@@ -176,19 +176,28 @@ namespace MaketUP
 
         
         private bool statusPasswordChar = true;
+
+        private void guna2Panel2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMenu form = new FormMenu();
+            Closed += (s, args) => this.Close();
+            form.Show();
+        }
+
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             statusPasswordChar = !statusPasswordChar;
             guna2TextBox3.UseSystemPasswordChar = statusPasswordChar;
             if (statusPasswordChar == true)
             {
-                string imagePath = @"C:/Users/stud/Desktop/practiceIT/MaketUP/Resources/icons8-eye-100.png";
-                button4.BackgroundImage = Image.FromFile(imagePath);
+                
+                button4.BackgroundImage = Properties.Resources.icons8_eye_100;
             }
             if(statusPasswordChar == false)
             {
-                string imagePath = @"C:/Users/stud/Desktop/practiceIT/MaketUP/Resources/icons8-closed-eye-100.png";
-                button4.BackgroundImage = Image.FromFile(imagePath);
+                
+                button4.BackgroundImage = Properties.Resources.icons8_closed_eye_100;
             }
             
         }
