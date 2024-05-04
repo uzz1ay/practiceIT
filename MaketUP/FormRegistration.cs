@@ -22,22 +22,6 @@ namespace MaketUP
             InitializeComponent();
 
 
-            ComponentRounder.SetRoundedShape(textBox1, 15);
-            ComponentRounder.SetRoundedShape(textBox2, 15);
-            ComponentRounder.SetRoundedShape(textBox3, 15);
-            ComponentRounder.SetRoundedShape(textBox4, 15);
-            ComponentRounder.SetRoundedShape(textBox5, 15);
-            ComponentRounder.SetRoundedShape(textBox6, 15);
-            ComponentRounder.SetRoundedShape(panel1, 30);
-
-
-            HintManager.SetHint(textBox1, "Введите логин");
-            HintManager.SetHint(textBox2, "Введите пароль");
-            HintManager.SetHint(textBox3, "Введите номер телефона");
-            HintManager.SetHint(textBox4, "Введите пароль");
-            HintManager.SetHint(textBox5, "Введите логин");
-            HintManager.SetHint(textBox6, "Введите пароль");
-
             animatedButton1 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton2 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
         }
@@ -48,39 +32,70 @@ namespace MaketUP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string Login = textBox4.Text;
-            string Password = textBox5.Text;
-            string input = textBox5.Text;
-            if (input.Length <= 6 || !Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9]+$"))
+            string Login = guna2TextBox2.Text;
+            string Password = guna2TextBox3.Text; 
+            string Phone = guna2TextBox4.Text;
+            string Mail = guna2TextBox1.Text;
+            string input = guna2TextBox3.Text;
+            if ((guna2TextBox3.Text != "" && guna2TextBox2.Text!= "") &&(guna2TextBox4.Text != "" && guna2TextBox1.Text != ""))
             {
-                MessageBox.Show("Рекомендуется использовать пароль длинной более 6 символов,сдержащий буквы и числа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                if (input.Length <= 6 || !Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9-\w\W]+$"))
                 {
-                    conn.Open();
-                    string query = "INSERT INTO Администратор (Логин,Пароль) VALUES (@Login,@Password);";
-                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                    MessageBox.Show("Рекомендуется использовать пароль длинной более 6 символов,сдержащий буквы и числа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if(input.Length >= 6 && Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9-\w\W]+$"))
+                {
+                    using (NpgsqlConnection conn3 = new NpgsqlConnection(connectionString))
                     {
-                        cmd.Parameters.AddWithValue("@Login", Login);
-                        cmd.Parameters.AddWithValue("@Password", Password);
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
+                        conn3.Open();
+                        string query3 = "SELECT EXISTS(SELECT * FROM Администратор WHERE Номер_телефона=@Phone OR Почта=@Mail OR Логин=@Login)";
+                        using (NpgsqlCommand cmd3 = new NpgsqlCommand(query3, conn3))
                         {
-                            MessageBox.Show("Пользователь добавлен!");
-                            this.Hide();
-                            Form1 form = new Form1();
-                            Closed += (s, args) => this.Close();
-                            form.Show();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Не удалось добавить пользователя!");
+                            cmd3.Parameters.AddWithValue("@Login", Login);
+                            cmd3.Parameters.AddWithValue("@Phone", Phone);
+                            cmd3.Parameters.AddWithValue("@Mail", Mail);
+                            bool result3 = (bool)cmd3.ExecuteScalar();
+                            if (result3)
+                            {
+                                MessageBox.Show("Пользователь с данным логином/почтой/телефоном занят");
+                            }
+                            else
+                            {
+                                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                                {
+                                    conn.Open();
+                                    string query = "INSERT INTO Администратор (Логин,Пароль,Номер_телефона,Почта) VALUES (@Login,@Password,@Phone,@Mail);";
+                                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                                    {
+                                        cmd.Parameters.AddWithValue("@Login", Login);
+                                        cmd.Parameters.AddWithValue("@Password", Password);
+                                        cmd.Parameters.AddWithValue("@Phone", Phone);
+                                        cmd.Parameters.AddWithValue("@Mail", Mail);
+                                        int rowsAffected = cmd.ExecuteNonQuery();
+                                        if (rowsAffected > 0)
+                                        {
+                                            MessageBox.Show("Пользователь добавлен!");
+                                            this.Hide();
+                                            Form1 form = new Form1();
+                                            Closed += (s, args) => this.Close();
+                                            form.Show();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Не удалось добавить пользователя!");
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Поля не могут быть пустыми!");
+            }
+            
             
         }
 
