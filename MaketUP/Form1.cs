@@ -19,7 +19,6 @@ namespace MaketUP
     public partial class Form1 : Form
     {
         private AnimatedButton animatedButton1, animatedButton3, animatedButton2;
-        private Button currentButton;
         public Form1()
         {
             InitializeComponent();
@@ -183,12 +182,12 @@ namespace MaketUP
             guna2TextBox3.UseSystemPasswordChar = statusPasswordChar;
             if (statusPasswordChar == true)
             {
-                string imagePath = @"C:/Users/stud/Desktop/MaketUP/MaketUP/Resources/icons8-eye-100.png";
+                string imagePath = @"C:/Users/stud/Desktop/practiceIT/MaketUP/Resources/icons8-eye-100.png";
                 button4.BackgroundImage = Image.FromFile(imagePath);
             }
             if(statusPasswordChar == false)
             {
-                string imagePath = @"C:/Users/stud/Desktop/MaketUP/MaketUP/Resources/icons8-closed-eye-100.png";
+                string imagePath = @"C:/Users/stud/Desktop/practiceIT/MaketUP/Resources/icons8-closed-eye-100.png";
                 button4.BackgroundImage = Image.FromFile(imagePath);
             }
             
