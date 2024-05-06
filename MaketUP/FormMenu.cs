@@ -42,6 +42,8 @@ namespace MaketUP
             animatedButton3 = new AnimatedGunoButton(guna2Button3, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton4 = new AnimatedGunoButton(guna2Button4, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton11 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton22 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton33 = new AnimatedButton(button3, Color.FromArgb(130, 6, 255), Color.White);
         }
         private void guna2Panel1_MouseHover(object sender, EventArgs e)
         {

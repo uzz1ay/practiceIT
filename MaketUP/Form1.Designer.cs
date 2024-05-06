@@ -82,10 +82,11 @@
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(522, 351);
+            this.button4.Location = new System.Drawing.Point(348, 228);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.button4.Size = new System.Drawing.Size(54, 55);
+            this.button4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Size = new System.Drawing.Size(36, 36);
             this.button4.TabIndex = 13;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.pictureBox8_Click);
@@ -97,12 +98,12 @@
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(0)))), ((int)(((byte)(98)))));
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(0, 629);
+            this.button3.Location = new System.Drawing.Point(0, 409);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(618, 89);
+            this.button3.Size = new System.Drawing.Size(414, 58);
             this.button3.TabIndex = 11;
             this.button3.Text = "Зарегистрироваться";
             this.button3.UseVisualStyleBackColor = false;
@@ -115,12 +116,12 @@
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 720);
+            this.button2.Location = new System.Drawing.Point(0, 461);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(621, 89);
+            this.button2.Size = new System.Drawing.Size(414, 58);
             this.button2.TabIndex = 11;
             this.button2.Text = "Забыли пароль";
             this.button2.UseVisualStyleBackColor = false;
@@ -133,12 +134,12 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 540);
+            this.button1.Location = new System.Drawing.Point(0, 351);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(618, 89);
+            this.button1.Size = new System.Drawing.Size(414, 58);
             this.button1.TabIndex = 11;
             this.button1.Text = "Войти";
             this.button1.UseVisualStyleBackColor = false;
@@ -149,10 +150,10 @@
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::MaketUP.Properties.Resources.image_5;
-            this.pictureBox3.Location = new System.Drawing.Point(430, 891);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(75, 77, 75, 77);
+            this.pictureBox3.Location = new System.Drawing.Point(287, 579);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(50, 50, 50, 50);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 39);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
@@ -163,10 +164,10 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::MaketUP.Properties.Resources.image_4;
-            this.pictureBox2.Location = new System.Drawing.Point(130, 891);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(75, 77, 75, 77);
+            this.pictureBox2.Location = new System.Drawing.Point(87, 579);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(50, 50, 50, 50);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox2.Size = new System.Drawing.Size(40, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -177,10 +178,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::MaketUP.Properties.Resources.image_3;
-            this.pictureBox1.Location = new System.Drawing.Point(280, 891);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(75, 77, 75, 77);
+            this.pictureBox1.Location = new System.Drawing.Point(187, 579);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(50, 50, 50, 50);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(60, 60);
+            this.pictureBox1.Size = new System.Drawing.Size(40, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -190,11 +191,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(142, 46);
+            this.label2.Location = new System.Drawing.Point(90, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(335, 46);
+            this.label2.Size = new System.Drawing.Size(234, 32);
             this.label2.TabIndex = 6;
             this.label2.Text = "Авторизоваться";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,11 +206,12 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(210, 829);
+            this.label5.Location = new System.Drawing.Point(143, 539);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(196, 25);
+            this.label5.Size = new System.Drawing.Size(128, 16);
             this.label5.TabIndex = 6;
             this.label5.Text = "Войти с помощью";
             // 
@@ -217,11 +220,12 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox1.FlatAppearance.BorderSize = 0;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(39, 457);
+            this.checkBox1.Location = new System.Drawing.Point(26, 297);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(275, 41);
+            this.checkBox1.Size = new System.Drawing.Size(204, 28);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.TabStop = false;
             this.checkBox1.Text = "Запомнить меня";
@@ -231,11 +235,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(740, 569);
+            this.label8.Location = new System.Drawing.Point(493, 370);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(555, 46);
+            this.label8.Size = new System.Drawing.Size(387, 32);
             this.label8.TabIndex = 6;
             this.label8.Text = "Войти с помощью QR-кода";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,11 +249,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(740, 78);
+            this.label6.Location = new System.Drawing.Point(493, 51);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(478, 46);
+            this.label6.Size = new System.Drawing.Size(348, 32);
             this.label6.TabIndex = 6;
             this.label6.Text = "Сохраненные аккаунты";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -257,11 +263,12 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 16F);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(740, 142);
+            this.label7.Location = new System.Drawing.Point(493, 92);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(328, 37);
+            this.label7.Size = new System.Drawing.Size(248, 25);
             this.label7.TabIndex = 6;
             this.label7.Text = "Нажмите чтобы войти";
             // 
@@ -275,32 +282,32 @@
             this.guna2Panel1.Controls.Add(this.pictureBox8);
             this.guna2Panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Panel1.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel1.Location = new System.Drawing.Point(1058, 200);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.guna2Panel1.Location = new System.Drawing.Point(705, 130);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.BorderRadius = 0;
-            this.guna2Panel1.Size = new System.Drawing.Size(280, 329);
+            this.guna2Panel1.Size = new System.Drawing.Size(187, 214);
             this.guna2Panel1.TabIndex = 11;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
-            this.label4.Location = new System.Drawing.Point(28, 260);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
+            this.label4.Location = new System.Drawing.Point(27, 169);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 26, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 29);
+            this.label4.Size = new System.Drawing.Size(132, 19);
             this.label4.TabIndex = 1;
             this.label4.Text = "Пользователь 2";
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::MaketUP.Properties.Resources.image__1_;
-            this.pictureBox8.Location = new System.Drawing.Point(40, 35);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(26, 9, 26, 3);
+            this.pictureBox8.Location = new System.Drawing.Point(27, 23);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(17, 6, 17, 2);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox8.Size = new System.Drawing.Size(133, 130);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 0;
             this.pictureBox8.TabStop = false;
@@ -315,33 +322,33 @@
             this.guna2Panel2.Controls.Add(this.pictureBox9);
             this.guna2Panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
-            this.guna2Panel2.Location = new System.Drawing.Point(747, 200);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.guna2Panel2.Location = new System.Drawing.Point(498, 130);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.BorderRadius = 0;
-            this.guna2Panel2.Size = new System.Drawing.Size(280, 329);
+            this.guna2Panel2.Size = new System.Drawing.Size(187, 214);
             this.guna2Panel2.TabIndex = 11;
             this.guna2Panel2.Click += new System.EventHandler(this.guna2Panel2_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(28, 260);
-            this.label10.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
+            this.label10.Location = new System.Drawing.Point(27, 169);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 26, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(212, 29);
+            this.label10.Size = new System.Drawing.Size(132, 19);
             this.label10.TabIndex = 1;
             this.label10.Text = "Пользователь 1";
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::MaketUP.Properties.Resources.image;
-            this.pictureBox9.Location = new System.Drawing.Point(40, 35);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(26, 9, 26, 3);
+            this.pictureBox9.Location = new System.Drawing.Point(27, 23);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(17, 6, 17, 2);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox9.Size = new System.Drawing.Size(133, 130);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 2;
             this.pictureBox9.TabStop = false;
@@ -356,32 +363,32 @@
             this.guna2Panel3.Controls.Add(this.pictureBox5);
             this.guna2Panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(1368, 200);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(15, 3, 15, 3);
+            this.guna2Panel3.Location = new System.Drawing.Point(912, 130);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(10, 2, 10, 2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.BorderRadius = 0;
-            this.guna2Panel3.Size = new System.Drawing.Size(280, 329);
+            this.guna2Panel3.Size = new System.Drawing.Size(187, 214);
             this.guna2Panel3.TabIndex = 11;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(28, 260);
-            this.label9.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
+            this.label9.Location = new System.Drawing.Point(27, 169);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 26, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(212, 29);
+            this.label9.Size = new System.Drawing.Size(132, 19);
             this.label9.TabIndex = 1;
             this.label9.Text = "Пользователь 3";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::MaketUP.Properties.Resources.image__2_;
-            this.pictureBox5.Location = new System.Drawing.Point(40, 35);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(26, 9, 26, 3);
+            this.pictureBox5.Location = new System.Drawing.Point(27, 23);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(17, 6, 17, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(200, 200);
+            this.pictureBox5.Size = new System.Drawing.Size(133, 130);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
@@ -395,20 +402,20 @@
             this.guna2Panel4.Controls.Add(this.pictureBox4);
             this.guna2Panel4.Controls.Add(this.label11);
             this.guna2Panel4.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel4.Location = new System.Drawing.Point(748, 634);
-            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.guna2Panel4.Location = new System.Drawing.Point(499, 412);
+            this.guna2Panel4.Margin = new System.Windows.Forms.Padding(20, 2, 20, 2);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.BorderRadius = 0;
-            this.guna2Panel4.Size = new System.Drawing.Size(620, 215);
+            this.guna2Panel4.Size = new System.Drawing.Size(413, 140);
             this.guna2Panel4.TabIndex = 11;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::MaketUP.Properties.Resources.qr_code_rule_website;
-            this.pictureBox4.Location = new System.Drawing.Point(18, 23);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 15);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(165, 169);
+            this.pictureBox4.Size = new System.Drawing.Size(110, 110);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 1;
             this.pictureBox4.TabStop = false;
@@ -418,9 +425,10 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
-            this.label11.Location = new System.Drawing.Point(202, 23);
+            this.label11.Location = new System.Drawing.Point(135, 15);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(347, 29);
+            this.label11.Size = new System.Drawing.Size(228, 20);
             this.label11.TabIndex = 0;
             this.label11.Text = "   Отсканируйте,чтобы войти";
             // 
@@ -445,11 +453,11 @@
             this.guna2Panel5.Controls.Add(this.pictureBox1);
             this.guna2Panel5.Controls.Add(this.label5);
             this.guna2Panel5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
-            this.guna2Panel5.Location = new System.Drawing.Point(28, 28);
-            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.guna2Panel5.Location = new System.Drawing.Point(19, 18);
+            this.guna2Panel5.Margin = new System.Windows.Forms.Padding(20, 2, 20, 2);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.ShadowDecoration.BorderRadius = 0;
-            this.guna2Panel5.Size = new System.Drawing.Size(621, 971);
+            this.guna2Panel5.Size = new System.Drawing.Size(414, 631);
             this.guna2Panel5.TabIndex = 11;
             // 
             // guna2TextBox3
@@ -465,21 +473,21 @@
             this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.guna2TextBox3.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox3.IconLeft = global::MaketUP.Properties.Resources.key;
             this.guna2TextBox3.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.guna2TextBox3.IconLeftSize = new System.Drawing.Size(35, 35);
             this.guna2TextBox3.IconRightSize = new System.Drawing.Size(35, 35);
-            this.guna2TextBox3.Location = new System.Drawing.Point(36, 342);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2TextBox3.Location = new System.Drawing.Point(23, 222);
+            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.guna2TextBox3.Name = "guna2TextBox3";
             this.guna2TextBox3.PasswordChar = '\0';
             this.guna2TextBox3.PlaceholderForeColor = System.Drawing.Color.DimGray;
             this.guna2TextBox3.PlaceholderText = "Введите пароль";
             this.guna2TextBox3.SelectedText = "";
-            this.guna2TextBox3.Size = new System.Drawing.Size(552, 74);
+            this.guna2TextBox3.Size = new System.Drawing.Size(368, 48);
             this.guna2TextBox3.TabIndex = 15;
             this.guna2TextBox3.TabStop = false;
             // 
@@ -496,20 +504,20 @@
             this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.guna2TextBox2.Font = new System.Drawing.Font("Century Gothic", 18F);
             this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.IconLeft = global::MaketUP.Properties.Resources.user;
             this.guna2TextBox2.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.guna2TextBox2.IconLeftSize = new System.Drawing.Size(35, 35);
-            this.guna2TextBox2.Location = new System.Drawing.Point(36, 208);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.guna2TextBox2.Location = new System.Drawing.Point(23, 135);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.DimGray;
             this.guna2TextBox2.PlaceholderText = "Введите логин";
             this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(552, 74);
+            this.guna2TextBox2.Size = new System.Drawing.Size(368, 48);
             this.guna2TextBox2.TabIndex = 15;
             this.guna2TextBox2.TabStop = false;
             // 
@@ -517,11 +525,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(32, 168);
+            this.label1.Location = new System.Drawing.Point(21, 104);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 37);
+            this.label1.Size = new System.Drawing.Size(76, 26);
             this.label1.TabIndex = 6;
             this.label1.Text = "Логин";
             // 
@@ -529,11 +538,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(32, 294);
+            this.label3.Location = new System.Drawing.Point(21, 191);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 37);
+            this.label3.Size = new System.Drawing.Size(94, 26);
             this.label3.TabIndex = 6;
             this.label3.Text = "Пароль";
             // 
@@ -552,24 +562,24 @@
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(2559, 194);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(9, 11, 9, 11);
+            this.guna2TextBox1.Location = new System.Drawing.Point(1706, 126);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.ShadowDecoration.BorderRadius = 0;
-            this.guna2TextBox1.Size = new System.Drawing.Size(1179, 152);
+            this.guna2TextBox1.Size = new System.Drawing.Size(786, 99);
             this.guna2TextBox1.TabIndex = 14;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::MaketUP.Properties.Resources.Frame_41;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1898, 1025);
+            this.ClientSize = new System.Drawing.Size(1265, 666);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.guna2Panel5);
             this.Controls.Add(this.guna2Panel4);
@@ -582,6 +592,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";

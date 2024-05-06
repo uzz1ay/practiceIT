@@ -32,11 +32,11 @@ namespace MaketUP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string Login = guna2TextBox2.Text;
-            string Password = guna2TextBox3.Text; 
-            string Phone = guna2TextBox4.Text;
-            string Mail = guna2TextBox1.Text;
-            string input = guna2TextBox3.Text;
+            string Login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text,@"\s +"," ").Trim() ;
+            string Password = System.Text.RegularExpressions.Regex.Replace(guna2TextBox3.Text, @"\s +", " ").Trim();
+            string Phone = System.Text.RegularExpressions.Regex.Replace(guna2TextBox4.Text, @"\s +", " ").Trim();
+            string Mail = System.Text.RegularExpressions.Regex.Replace(guna2TextBox1.Text, @"\s +", " ").Trim();
+            string input = Password;
             if ((guna2TextBox3.Text != "" && guna2TextBox2.Text!= "") &&(guna2TextBox4.Text != "" && guna2TextBox1.Text != ""))
             {
                 if (input.Length <= 6 || !Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9-\w\W]+$"))
@@ -45,6 +45,7 @@ namespace MaketUP
                 }
                 else if(input.Length >= 6 && Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9-\w\W]+$"))
                 {
+                    
                     using (NpgsqlConnection conn3 = new NpgsqlConnection(connectionString))
                     {
                         conn3.Open();
