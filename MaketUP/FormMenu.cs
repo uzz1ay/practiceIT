@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,164 @@ namespace MaketUP
 {
     public partial class FormMenu : Form
     {
-        private AnimatedGunoButton animatedButton1, animatedButton3, animatedButton2, animatedButton4;
-        private AnimatedButton animatedButton11, animatedButton33, animatedButton22;
+        private AnimatedGunoButton animatedButton1, animatedButton3, animatedButton2, animatedButton4, animatedButton5;
+        private AnimatedButton animatedButton11, animatedButton33, animatedButton22, animatedButton44, animatedButton55, animatedButton66, animatedButton77, animatedButton88, animatedButton99;
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormRegistration form = new FormRegistration();
+            Closed += (s, args) => this.Close();
+            form.Show();
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
         {
             guna2Panel2.Visible = true;
             guna2Panel3.Visible = false;
+            LoadData();
+            guna2DataGridView1.CellClick += DataGridView_CellClick;
+            if(ClassStorage.role == "admin")
+            {
+                guna2HtmlLabel6.Text += "Администратор";
+            }
+            else
+            {
+                guna2HtmlLabel6.Text += "Пользователь";
+            }
+        }
+
+        private void LoadData()
+        {
+            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Администратор;";
+                using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, conn))
+                {
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    conn.Close();
+                    guna2DataGridView1.DataSource = table;
+                    
+                }
+            }
+        }
+
+        private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = guna2DataGridView1.Rows[e.RowIndex];
+                string login = System.Text.RegularExpressions.Regex.Replace(row.Cells["Логин"].Value.ToString(), @"\s +", " ").Trim();
+                ClassStorage.selectedLogin = login;
+                string password = System.Text.RegularExpressions.Regex.Replace(row.Cells["Пароль"].Value.ToString(), @"\s +", " ").Trim();
+                ClassStorage.selectedPassword = password;
+                string phone_number = System.Text.RegularExpressions.Regex.Replace(row.Cells["Номер_телефона"].Value.ToString(), @"\s +", " ").Trim();
+                ClassStorage.selectedPhone = phone_number;
+                string mail = System.Text.RegularExpressions.Regex.Replace(row.Cells["Почта"].Value.ToString(), @"\s +", " ").Trim();
+                ClassStorage.selectedMail = mail;
+                string role = System.Text.RegularExpressions.Regex.Replace(row.Cells["Роль"].Value.ToString(), @"\s +", " ").Trim();
+                ClassStorage.selectedRole= role;
+                MessageBox.Show($"Пользователь с логином {login} был выбран");
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "DELETE FROM Администратор WHERE Логин = @login AND Пароль = @password AND Номер_телефона = @phone_number AND Почта = @mail;";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
+                    cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                    cmd.Parameters.AddWithValue("@phone_number", ClassStorage.selectedPhone);
+                    cmd.Parameters.AddWithValue("@mail", ClassStorage.selectedMail);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Пользователь с логином {ClassStorage.selectedLogin} был удален");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось удалить пользователя");
+                    }
+                    conn.Close();
+
+                }
+            }
+
+            LoadData();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (ClassStorage.selectedRole == "admin")
+            {
+                ClassStorage.selectedRole = "user";
+            }
+            else if (ClassStorage.selectedRole == "user")
+            {
+                ClassStorage.selectedRole = "admin";
+            }
+            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "UPDATE Администратор SET Роль = @role WHERE Логин = @login AND Пароль = @password AND Номер_телефона = @phone_number AND Почта = @mail;";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
+                    cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                    cmd.Parameters.AddWithValue("@phone_number", ClassStorage.selectedPhone);
+                    cmd.Parameters.AddWithValue("@mail", ClassStorage.selectedMail);
+                    cmd.Parameters.AddWithValue("@role", ClassStorage.selectedRole);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show($"Роль пользователя {ClassStorage.selectedLogin} была изменена на {ClassStorage.selectedRole}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не удалось удалить пользователя");
+                    }
+                    conn.Close();
+
+                }
+            }
+
+            LoadData();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            /*using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "SELECT Неверный_пароль_счетчик FROM Администратор WHERE Логин = @login AND Пароль = @password ;";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
+                    cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                    cmd.Parameters.AddWithValue("@date", ClassStorage.last_auth);
+                    string countpassword = cmd.ExecuteScalar().ToString();
+                    ClassStorage.countWrondPassword = Convert.ToInt32(countpassword);
+                    
+                }
+
+
+                conn.Close();
+            }*/
+            MessageBox.Show($"Количество неправильно введеных паролей для этого пользователя = {ClassStorage.countWrondPassword}");
+        }
+
+        private string connectionString = "Server = localhost;port = 5432;username=postgres;password=123;database=postgres";
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+           
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -41,9 +193,24 @@ namespace MaketUP
             animatedButton2 = new AnimatedGunoButton(guna2Button2, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton3 = new AnimatedGunoButton(guna2Button3, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton4 = new AnimatedGunoButton(guna2Button4, Color.FromArgb(130, 6, 255), Color.White);
+            if(ClassStorage.role == "admin")
+            {
+                guna2Button5.Visible = true;
+                animatedButton5 = new AnimatedGunoButton(guna2Button5, Color.FromArgb(130, 6, 255), Color.White);
+            }
+            else
+            {
+                guna2Button5.Visible = false;
+            }
             animatedButton11 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton22 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton33 = new AnimatedButton(button3, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton44 = new AnimatedButton(button4, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton55 = new AnimatedButton(button5, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton66 = new AnimatedButton(button6, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton77 = new AnimatedButton(button7, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton88 = new AnimatedButton(button8, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton99 = new AnimatedButton(button9, Color.FromArgb(130, 6, 255), Color.White);
         }
         private void guna2Panel1_MouseHover(object sender, EventArgs e)
         {
@@ -88,6 +255,13 @@ namespace MaketUP
                 guna2Button4.Width = guna2Panel1.Width-10;
                 guna2Button4.Text = "График";
                 guna2Button4.Image = null;
+                if(ClassStorage.role == "admin")
+                {
+                    guna2Button5.Width = guna2Panel1.Width - 10;
+                    guna2Button5.Text = "Администрирование";
+                    guna2Button5.Image = null;
+                }
+                
                 expandTimer.Stop();
             }
         }
@@ -122,6 +296,13 @@ namespace MaketUP
                 guna2Button4.Width = guna2Panel1.Width-10;
                 guna2Button4.Text = "";
                 guna2Button4.Image = Properties.Resources.chart;
+                if (ClassStorage.role == "admin")
+                {
+
+                    guna2Button5.Width = guna2Panel1.Width - 10;
+                    guna2Button5.Text = "";
+                    guna2Button5.Image = Properties.Resources.administration;
+                }
                 collapseTimer.Stop();
             }
         }

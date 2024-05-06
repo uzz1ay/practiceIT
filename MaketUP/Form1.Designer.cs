@@ -83,9 +83,9 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Location = new System.Drawing.Point(348, 228);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Padding = new System.Windows.Forms.Padding(2);
             this.button4.Size = new System.Drawing.Size(36, 36);
             this.button4.TabIndex = 13;
             this.button4.UseVisualStyleBackColor = false;
@@ -118,7 +118,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 461);
+            this.button2.Location = new System.Drawing.Point(0, 467);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(414, 58);
@@ -151,7 +151,7 @@
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::MaketUP.Properties.Resources.image_5;
             this.pictureBox3.Location = new System.Drawing.Point(287, 579);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(50, 50, 50, 50);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(50);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 39);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -165,7 +165,7 @@
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::MaketUP.Properties.Resources.image_4;
             this.pictureBox2.Location = new System.Drawing.Point(87, 579);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(50, 50, 50, 50);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(50);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 39);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,7 +179,7 @@
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::MaketUP.Properties.Resources.image_3;
             this.pictureBox1.Location = new System.Drawing.Point(187, 579);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(50, 50, 50, 50);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(50);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 39);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -223,7 +223,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 15.75F);
             this.checkBox1.ForeColor = System.Drawing.Color.White;
             this.checkBox1.Location = new System.Drawing.Point(26, 297);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(204, 28);
             this.checkBox1.TabIndex = 2;
@@ -341,6 +341,7 @@
             this.label10.Size = new System.Drawing.Size(132, 19);
             this.label10.TabIndex = 1;
             this.label10.Text = "Пользователь 1";
+            this.label10.Click += new System.EventHandler(this.guna2Panel2_Click);
             // 
             // pictureBox9
             // 
@@ -352,6 +353,7 @@
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 2;
             this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.guna2Panel2_Click);
             // 
             // guna2Panel3
             // 
@@ -413,7 +415,7 @@
             // 
             this.pictureBox4.Image = global::MaketUP.Properties.Resources.qr_code_rule_website;
             this.pictureBox4.Location = new System.Drawing.Point(12, 15);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(1);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(110, 110);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -481,7 +483,7 @@
             this.guna2TextBox3.IconLeftSize = new System.Drawing.Size(35, 35);
             this.guna2TextBox3.IconRightSize = new System.Drawing.Size(35, 35);
             this.guna2TextBox3.Location = new System.Drawing.Point(23, 222);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox3.Name = "guna2TextBox3";
             this.guna2TextBox3.PasswordChar = '\0';
             this.guna2TextBox3.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -511,7 +513,7 @@
             this.guna2TextBox2.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.guna2TextBox2.IconLeftSize = new System.Drawing.Size(35, 35);
             this.guna2TextBox2.Location = new System.Drawing.Point(23, 135);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(5);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.DimGray;
@@ -592,7 +594,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Авторизация";

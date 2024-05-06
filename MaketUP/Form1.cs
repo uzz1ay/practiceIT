@@ -80,8 +80,25 @@ namespace MaketUP
         private void button1_Click(object sender, EventArgs e)
         {
             
-            string login = guna2TextBox2.Text;
-            string password = guna2TextBox3.Text;
+            string login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text, @"\s +", " ").Trim();
+            string password = System.Text.RegularExpressions.Regex.Replace(guna2TextBox3.Text, @"\s +", " ").Trim();
+            DateTime last_auth = DateTime.Now;
+            string formated_last_auth = last_auth.ToString("yyyy-MM-dd HH:mm:ss");
+            ClassStorage.last_auth = formated_last_auth; 
+            ClassStorage.selectedLogin = login;
+            ClassStorage.selectedPassword = password;
+            string Role;
+            //ПРОДУМАТЬ ВХОД С НОМЕРОМ И ПОЧТОЙ,ТАК КАК ТАМ НЕ ВВОДЯТ "АДМИН",СКОРЕЕ ВСЕГО С ПОМОЩЬЮ ЗАПРОСА
+            if (login.ToLower().Contains("admin"))
+            {
+                Role = "admin";
+                ClassStorage.role = "admin";
+            }
+            else
+            {
+                Role = "user";
+                ClassStorage.role = "user";
+            }
             if (checkBox1.Checked)
             {
                 ClassStorage.login = login;
@@ -108,6 +125,7 @@ namespace MaketUP
                                 bool result2 = (bool)cmd2.ExecuteScalar();
                                 if (result2)
                                 {
+                                    lastAuth();
                                     MessageBox.Show("Авторизовано!");
                                     this.Hide();
                                     FormMenu form = new FormMenu();
@@ -116,6 +134,7 @@ namespace MaketUP
                                 }
                                 else
                                 {
+                                    ClassStorage.countWrondPassword += 1;
                                     MessageBox.Show("Неверный пароль.");
                                 }
                             }
@@ -134,6 +153,7 @@ namespace MaketUP
                                 bool result2 = (bool)cmd2.ExecuteScalar();
                                 if (result2)
                                 {
+                                    lastAuth();
                                     MessageBox.Show("Авторизовано!");
                                     this.Hide();
                                     FormMenu form = new FormMenu();
@@ -153,7 +173,9 @@ namespace MaketUP
                                             bool result3 = (bool)cmd3.ExecuteScalar();
                                             if (result3)
                                             {
+                                                lastAuth();
                                                 MessageBox.Show("Авторизовано!");
+                                                conn.Close();
                                                 this.Hide();
                                                 FormMenu form = new FormMenu();
                                                 Closed += (s, args) => this.Close();
@@ -173,12 +195,45 @@ namespace MaketUP
             }
             
         }
+        private void lastAuth()
+        {
+            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+                
+                    string query = "UPDATE Администратор SET Последний_вход = @date WHERE Логин = @login AND Пароль = @password ;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
+                        cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                        cmd.Parameters.AddWithValue("@date", ClassStorage.last_auth);
+                        cmd.Parameters.AddWithValue("@count_password", ClassStorage.countWrondPassword); 
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                    }
+                string query2 = "UPDATE Администратор SET Неверный_пароль_счетчик = @count_password WHERE Логин = @login AND Пароль = @password ;";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
+                    cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                    cmd.Parameters.AddWithValue("@date", ClassStorage.last_auth);
+                    cmd.Parameters.AddWithValue("@count_password", ClassStorage.countWrondPassword);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                }
+
+
+                conn.Close();
+            }
+                
+        }
 
         
         private bool statusPasswordChar = true;
 
         private void guna2Panel2_Click(object sender, EventArgs e)
         {
+            ClassStorage.role = "admin";
             this.Hide();
             FormMenu form = new FormMenu();
             Closed += (s, args) => this.Close();

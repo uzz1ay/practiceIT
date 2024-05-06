@@ -391,6 +391,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\administration.png" />
     <None Include="Resources\Component 3 %283%29.png" />
     <None Include="Resources\Component 3 %281%29.png" />
     <None Include="Resources\Component 3.png" />

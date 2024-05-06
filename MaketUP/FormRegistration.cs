@@ -16,11 +16,10 @@ namespace MaketUP
     {
         private string connectionString = "Server = localhost;port = 5432;username=postgres;password=123;database=postgres";
         private AnimatedButton animatedButton1, animatedButton2;
-        private Button currentButton;
         public FormRegistration()
         {
             InitializeComponent();
-
+            //ДОБАВИТЬ ПРОВЕРКИ ДЛЯ НОМЕРОВ ТЕЛЕФОНОВ И ПОЧТЫ
 
             animatedButton1 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton2 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
@@ -32,13 +31,25 @@ namespace MaketUP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string Login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text,@"\s +"," ").Trim() ;
+            string Login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text,@"\s +"," ").Trim();
+            string Role;
+            if (Login.ToLower().Contains("admin"))
+            {
+                Role = "admin";
+                ClassStorage.role = "admin";
+            }
+            else
+            {
+                Role = "user";
+                ClassStorage.role = "user";
+            }
             string Password = System.Text.RegularExpressions.Regex.Replace(guna2TextBox3.Text, @"\s +", " ").Trim();
             string Phone = System.Text.RegularExpressions.Regex.Replace(guna2TextBox4.Text, @"\s +", " ").Trim();
             string Mail = System.Text.RegularExpressions.Regex.Replace(guna2TextBox1.Text, @"\s +", " ").Trim();
             string input = Password;
             if ((guna2TextBox3.Text != "" && guna2TextBox2.Text!= "") &&(guna2TextBox4.Text != "" && guna2TextBox1.Text != ""))
             {
+                
                 if (input.Length <= 6 || !Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9-\w\W]+$"))
                 {
                     MessageBox.Show("Рекомендуется использовать пароль длинной более 6 символов,сдержащий буквы и числа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,13 +76,14 @@ namespace MaketUP
                                 using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                                 {
                                     conn.Open();
-                                    string query = "INSERT INTO Администратор (Логин,Пароль,Номер_телефона,Почта) VALUES (@Login,@Password,@Phone,@Mail);";
+                                    string query = "INSERT INTO Администратор (Логин,Пароль,Номер_телефона,Почта,Роль) VALUES (@Login,@Password,@Phone,@Mail,@Role);";
                                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                                     {
                                         cmd.Parameters.AddWithValue("@Login", Login);
                                         cmd.Parameters.AddWithValue("@Password", Password);
                                         cmd.Parameters.AddWithValue("@Phone", Phone);
                                         cmd.Parameters.AddWithValue("@Mail", Mail);
+                                        cmd.Parameters.AddWithValue("@Role", Role);
                                         int rowsAffected = cmd.ExecuteNonQuery();
                                         if (rowsAffected > 0)
                                         {

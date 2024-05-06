@@ -26,7 +26,8 @@ namespace MaketUP
             string email = "uselesspuck@gmail.com";
             string subject = "Код для подтверждения";
             string body = $"Ваш код для подтверждения: {verificationCode}";
-            string login = guna2TextBox2.Text;
+            
+            string login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text, @"\s +", " ").Trim();
             using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
@@ -74,9 +75,9 @@ namespace MaketUP
         private string connectionString = "Server = localhost;port = 5432;username=postgres;password=123;database=postgres";
         private void button4_Click(object sender, EventArgs e)
         {
-            string login = guna2TextBox2.Text;
-            string password = guna2TextBox3.Text;
-            string input = guna2TextBox3.Text;
+            string login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text, @"\s +", " ").Trim();
+            string password = System.Text.RegularExpressions.Regex.Replace(guna2TextBox3.Text, @"\s +", " ").Trim();
+            string input = System.Text.RegularExpressions.Regex.Replace(guna2TextBox3.Text, @"\s +", " ").Trim();
             if (guna2TextBox3.Text != "")
             {
                 if (input.Length <= 6 || !Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9-\w\W]+$"))
@@ -113,10 +114,10 @@ namespace MaketUP
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (guna2TextBox1.Text != "")
+            if (System.Text.RegularExpressions.Regex.Replace(guna2TextBox1.Text, @"\s +", " ").Trim() != "")
             {
-                int enteredCode = Convert.ToInt32(guna2TextBox1.Text);
-                if (int.TryParse(guna2TextBox1.Text, out enteredCode))
+                int enteredCode = Convert.ToInt32(System.Text.RegularExpressions.Regex.Replace(guna2TextBox1.Text, @"\s +", " ").Trim());
+                if (int.TryParse(System.Text.RegularExpressions.Regex.Replace(guna2TextBox1.Text, @"\s +", " ").Trim(), out enteredCode))
                 {
                     if (enteredCode == verificationCode)
                     {
