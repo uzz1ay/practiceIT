@@ -260,6 +260,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnimatedButton.cs" />
+    <Compile Include="AnimatedGunoButton.cs" />
     <Compile Include="ButtonEnter.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -390,6 +391,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\Component 3 %283%29.png" />
+    <None Include="Resources\Component 3 %281%29.png" />
+    <None Include="Resources\Component 3.png" />
+    <None Include="Resources\chart.png" />
+    <None Include="Resources\profile-user.png" />
+    <None Include="Resources\homepage.png" />
     <None Include="Resources\back-button.png" />
     <None Include="Resources\verified.png" />
     <None Include="Resources\email %281%29.png" />
