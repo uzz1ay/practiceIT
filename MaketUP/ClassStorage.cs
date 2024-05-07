@@ -11,6 +11,10 @@ namespace MaketUP
         public static string name;
         public static string login;
         public static string password;
+        public static string authlogin;
+        public static string authpassword;
+        public static string mail;
+        public static string phone;
         public static string role;
         public static string selectedLogin;
         public static string selectedPassword;

@@ -32,11 +32,11 @@ namespace MaketUP
             guna2Panel3.Visible = false;
             if(ClassStorage.role == "admin")
             {
-                guna2HtmlLabel6.Text += "Администратор";
+                guna2HtmlLabel6.Text = "Вы вошли как  Администратор";
             }
             else
             {
-                guna2HtmlLabel6.Text += "Пользователь";
+                guna2HtmlLabel6.Text = "Вы вошли как  Пользователь";
             }
         }
 
@@ -258,6 +258,104 @@ namespace MaketUP
             comboboxQuery = "SELECT Последний_вход FROM Администратор";
             LoadData();
         }
+        private bool redactProfile = false;
+        private void button2_Click(object sender, EventArgs e)
+        {
+            redactProfile = !redactProfile;
+            if(redactProfile == true)
+            {
+                guna2TextBox1.Visible = true;
+                guna2TextBox2.Visible = true;
+                guna2TextBox3.Visible = true;
+                button2.Text = "Отменить";
+                guna2TextBox1.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.mail, @"\s +", " ").Trim();
+                guna2TextBox2.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.login, @"\s +", " ").Trim();
+                guna2TextBox3.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.phone, @"\s +", " ").Trim();
+                guna2HtmlLabel9.Visible = false;
+                guna2HtmlLabel12.Visible = false;
+                guna2HtmlLabel13.Visible = false;
+                button4.Visible = true;
+            }
+            else
+            {
+                guna2TextBox1.Visible = false;
+                guna2TextBox2.Visible = false;
+                guna2TextBox3.Visible = false;
+                button2.Text = "Редактировать профиль";
+                guna2HtmlLabel9.Visible = true;
+                guna2HtmlLabel12.Visible = true;
+                guna2HtmlLabel13.Visible = true;
+                button4.Visible = false;
+            }
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string mail = guna2TextBox1.Text;
+            string phone = guna2TextBox3.Text;
+            string login = guna2TextBox2.Text;
+
+            if (mail.ToLower().Contains("@gmail.com"))
+            {
+                if (phone.Length < 13 && phone.Contains("79"))
+                {
+                    using (NpgsqlConnection conn3 = new NpgsqlConnection(connectionString))
+                    {
+                        conn3.Open();
+                        string query3 = "SELECT EXISTS(SELECT * FROM Администратор WHERE Номер_телефона=@Phone OR Почта=@Mail OR Логин=@Login)";
+                        using (NpgsqlCommand cmd3 = new NpgsqlCommand(query3, conn3))
+                        {
+                            cmd3.Parameters.AddWithValue("@Login", login);
+                            cmd3.Parameters.AddWithValue("@Phone", phone);
+                            cmd3.Parameters.AddWithValue("@Mail", mail);
+                            bool result3 = (bool)cmd3.ExecuteScalar();
+                            if (result3)
+                            {
+                                MessageBox.Show("Пользователь с данным логином/почтой/телефоном занят");
+                            }
+                            else
+                            {
+                                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                                {
+                                    conn.Open();
+                                    string query = "UPDATE Администратор SET Логин = @login,Почта = @mail,Номер_телефона = @phone WHERE Логин = @oldLogin AND Пароль = @password ;";
+                                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                                    {
+                                        cmd.Parameters.AddWithValue("@login", guna2TextBox2.Text);
+                                        cmd.Parameters.AddWithValue("@oldLogin", ClassStorage.login);
+                                        cmd.Parameters.AddWithValue("@password", ClassStorage.password);
+                                        cmd.Parameters.AddWithValue("@phone", guna2TextBox3.Text);
+                                        cmd.Parameters.AddWithValue("@mail", guna2TextBox1.Text);
+                                        cmd.Parameters.AddWithValue("@role", ClassStorage.role);
+                                        int rowsAffected = cmd.ExecuteNonQuery();
+                                        if (rowsAffected > 0)
+                                        {
+                                            MessageBox.Show($"Данные обновлены!");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Не удалось изменить данные");
+                                        }
+                                        conn.Close();
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Некорректный номер телефона");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Некорректный почтовый адрес");
+            }
+
+        }
 
         private string connectionString = "Server = localhost;port = 5432;username=postgres;password=123;database=postgres";
 
@@ -270,7 +368,43 @@ namespace MaketUP
         {
             guna2Panel2.Visible = false;
             guna2Panel3.Visible = true;
-            /*guna2HtmlLabel2.Text = */
+            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "SELECT Логин,Пароль,Почта,Номер_телефона,Роль FROM Администратор WHERE Логин = @login AND Пароль = @password ;";
+                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@login", ClassStorage.authlogin);
+                    cmd.Parameters.AddWithValue("@password", ClassStorage.authpassword);
+                    using (NpgsqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string login = reader.GetString(0);
+                            string password = reader.GetString(1);
+                            string mail = reader.GetString(2);
+                            string phone = reader.GetString(3);
+                            string role = reader.GetString(4);
+
+                            ClassStorage.login = System.Text.RegularExpressions.Regex.Replace(login, @"\s +", " ").Trim();
+                            ClassStorage.password = System.Text.RegularExpressions.Regex.Replace(password, @"\s +", " ").Trim();
+                            ClassStorage.mail = System.Text.RegularExpressions.Regex.Replace(mail, @"\s +", " ").Trim();
+                            ClassStorage.phone = System.Text.RegularExpressions.Regex.Replace(phone, @"\s +", " ").Trim();
+                            ClassStorage.role = System.Text.RegularExpressions.Regex.Replace(role, @"\s +", " ").Trim();
+                        }
+                    }
+
+                }
+
+                conn.Close();
+            }
+            guna2HtmlLabel9.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.login, @"\s +", " ").Trim();
+            guna2HtmlLabel12.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.mail, @"\s +", " ").Trim();
+            guna2HtmlLabel13.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.phone, @"\s +", " ").Trim();
+            guna2HtmlLabel10.Text = "       ********";//ClassStorage.password;
+            guna2HtmlLabel11.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.role, @"\s +", " ").Trim();
+
         }
 
 
@@ -287,7 +421,7 @@ namespace MaketUP
             animatedButton2 = new AnimatedGunoButton(guna2Button2, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton3 = new AnimatedGunoButton(guna2Button3, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton4 = new AnimatedGunoButton(guna2Button4, Color.FromArgb(130, 6, 255), Color.White);
-            if(ClassStorage.role == "admin")
+            if(System.Text.RegularExpressions.Regex.Replace(ClassStorage.role, @"\s +", " ").Trim() == "admin")
             {
                 guna2Button5.Visible = true;
                 animatedButton5 = new AnimatedGunoButton(guna2Button5, Color.FromArgb(130, 6, 255), Color.White);
@@ -348,12 +482,10 @@ namespace MaketUP
                 guna2Button4.Width = guna2Panel1.Width-10;
                 guna2Button4.Text = "График";
                 guna2Button4.Image = null;
-                if(ClassStorage.role == "admin")
-                {
-                    guna2Button5.Width = guna2Panel1.Width - 10;
-                    guna2Button5.Text = "Администрирование";
-                    guna2Button5.Image = null;
-                }
+                guna2Button5.Width = guna2Panel1.Width - 10;
+                guna2Button5.Text = "Администрирование";
+                guna2Button5.Image = null;
+                
                 
                 expandTimer.Stop();
             }
@@ -389,13 +521,10 @@ namespace MaketUP
                 guna2Button4.Width = guna2Panel1.Width-10;
                 guna2Button4.Text = "";
                 guna2Button4.Image = Properties.Resources.chart;
-                if (ClassStorage.role == "admin")
-                {
-
-                    guna2Button5.Width = guna2Panel1.Width - 10;
-                    guna2Button5.Text = "";
-                    guna2Button5.Image = Properties.Resources.administration;
-                }
+                guna2Button5.Width = guna2Panel1.Width - 10;
+                guna2Button5.Text = "";
+                guna2Button5.Image = Properties.Resources.administration;
+                
                 collapseTimer.Stop();
             }
         }

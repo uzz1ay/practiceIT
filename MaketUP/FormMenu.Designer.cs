@@ -60,6 +60,15 @@
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel13 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -390,12 +399,21 @@
             this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.BorderRadius = 10;
             this.guna2Panel3.Controls.Add(this.button3);
+            this.guna2Panel3.Controls.Add(this.button4);
             this.guna2Panel3.Controls.Add(this.button2);
             this.guna2Panel3.Controls.Add(this.button1);
+            this.guna2Panel3.Controls.Add(this.guna2TextBox3);
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel13);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel4);
+            this.guna2Panel3.Controls.Add(this.guna2TextBox1);
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel12);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel3);
+            this.guna2Panel3.Controls.Add(this.guna2TextBox2);
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel11);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel8);
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel10);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel5);
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel9);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel1);
             this.guna2Panel3.Controls.Add(this.pictureBox1);
@@ -439,6 +457,7 @@
             this.button2.TabIndex = 12;
             this.button2.Text = "Редактировать профиль";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -462,8 +481,8 @@
             this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(276, 233);
-            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(10, 25, 3, 25);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(276, 204);
+            this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
             this.guna2HtmlLabel4.Size = new System.Drawing.Size(195, 26);
             this.guna2HtmlLabel4.TabIndex = 1;
@@ -474,8 +493,8 @@
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(276, 156);
-            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(10, 25, 3, 25);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(276, 138);
+            this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(63, 26);
             this.guna2HtmlLabel3.TabIndex = 1;
@@ -486,8 +505,8 @@
             this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(276, 310);
-            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(10, 25, 3, 25);
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(276, 270);
+            this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
             this.guna2HtmlLabel5.Size = new System.Drawing.Size(81, 26);
             this.guna2HtmlLabel5.TabIndex = 1;
@@ -498,12 +517,12 @@
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(276, 79);
-            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(10, 25, 3, 25);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(276, 72);
+            this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(376, 26);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(66, 26);
             this.guna2HtmlLabel2.TabIndex = 1;
-            this.guna2HtmlLabel2.Text = "Логин ДОБАВИТЬ РЕДАКТИРОВАНИЕ";
+            this.guna2HtmlLabel2.Text = "Логин";
             // 
             // guna2HtmlLabel1
             // 
@@ -571,12 +590,181 @@
             this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel8.Location = new System.Drawing.Point(276, 386);
-            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10, 25, 3, 25);
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(276, 336);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
             this.guna2HtmlLabel8.Size = new System.Drawing.Size(51, 26);
             this.guna2HtmlLabel8.TabIndex = 1;
             this.guna2HtmlLabel8.Text = "Роль";
+            // 
+            // guna2HtmlLabel9
+            // 
+            this.guna2HtmlLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel9.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel9.Location = new System.Drawing.Point(494, 72);
+            this.guna2HtmlLabel9.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2HtmlLabel9.Name = "guna2HtmlLabel9";
+            this.guna2HtmlLabel9.Size = new System.Drawing.Size(66, 26);
+            this.guna2HtmlLabel9.TabIndex = 1;
+            this.guna2HtmlLabel9.Text = "Логин";
+            // 
+            // guna2HtmlLabel10
+            // 
+            this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel10.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(494, 270);
+            this.guna2HtmlLabel10.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
+            this.guna2HtmlLabel10.Size = new System.Drawing.Size(81, 26);
+            this.guna2HtmlLabel10.TabIndex = 1;
+            this.guna2HtmlLabel10.Text = "Пароль";
+            // 
+            // guna2HtmlLabel11
+            // 
+            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(494, 336);
+            this.guna2HtmlLabel11.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(51, 26);
+            this.guna2HtmlLabel11.TabIndex = 1;
+            this.guna2HtmlLabel11.Text = "Роль";
+            // 
+            // guna2HtmlLabel12
+            // 
+            this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel12.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(494, 138);
+            this.guna2HtmlLabel12.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
+            this.guna2HtmlLabel12.Size = new System.Drawing.Size(63, 26);
+            this.guna2HtmlLabel12.TabIndex = 1;
+            this.guna2HtmlLabel12.Text = "Почта";
+            // 
+            // guna2HtmlLabel13
+            // 
+            this.guna2HtmlLabel13.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel13.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel13.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel13.Location = new System.Drawing.Point(494, 204);
+            this.guna2HtmlLabel13.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2HtmlLabel13.Name = "guna2HtmlLabel13";
+            this.guna2HtmlLabel13.Size = new System.Drawing.Size(195, 26);
+            this.guna2HtmlLabel13.TabIndex = 1;
+            this.guna2HtmlLabel13.Text = "Номер телефона";
+            // 
+            // guna2TextBox2
+            // 
+            this.guna2TextBox2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.Gray;
+            this.guna2TextBox2.BorderRadius = 15;
+            this.guna2TextBox2.BorderThickness = 2;
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.guna2TextBox2.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.guna2TextBox2.IconLeftSize = new System.Drawing.Size(35, 35);
+            this.guna2TextBox2.Location = new System.Drawing.Point(494, 72);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PasswordChar = '\0';
+            this.guna2TextBox2.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.guna2TextBox2.PlaceholderText = "";
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.Size = new System.Drawing.Size(380, 48);
+            this.guna2TextBox2.TabIndex = 30;
+            this.guna2TextBox2.TabStop = false;
+            this.guna2TextBox2.Visible = false;
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.Gray;
+            this.guna2TextBox1.BorderRadius = 15;
+            this.guna2TextBox1.BorderThickness = 2;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.guna2TextBox1.IconLeftSize = new System.Drawing.Size(35, 35);
+            this.guna2TextBox1.Location = new System.Drawing.Point(494, 138);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(380, 48);
+            this.guna2TextBox1.TabIndex = 30;
+            this.guna2TextBox1.TabStop = false;
+            this.guna2TextBox1.Visible = false;
+            // 
+            // guna2TextBox3
+            // 
+            this.guna2TextBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2TextBox3.BorderColor = System.Drawing.Color.Gray;
+            this.guna2TextBox3.BorderRadius = 15;
+            this.guna2TextBox3.BorderThickness = 2;
+            this.guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox3.DefaultText = "";
+            this.guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox3.Font = new System.Drawing.Font("Century Gothic", 18F);
+            this.guna2TextBox3.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox3.IconLeftOffset = new System.Drawing.Point(5, 0);
+            this.guna2TextBox3.IconLeftSize = new System.Drawing.Size(35, 35);
+            this.guna2TextBox3.Location = new System.Drawing.Point(494, 204);
+            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(10, 20, 3, 20);
+            this.guna2TextBox3.Name = "guna2TextBox3";
+            this.guna2TextBox3.PasswordChar = '\0';
+            this.guna2TextBox3.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.guna2TextBox3.PlaceholderText = "";
+            this.guna2TextBox3.SelectedText = "";
+            this.guna2TextBox3.Size = new System.Drawing.Size(380, 48);
+            this.guna2TextBox3.TabIndex = 30;
+            this.guna2TextBox3.TabStop = false;
+            this.guna2TextBox3.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(276, 381);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(250, 58);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Изменить";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormMenu
             // 
@@ -635,5 +823,14 @@
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel13;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel9;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox3;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private System.Windows.Forms.Button button4;
     }
 }

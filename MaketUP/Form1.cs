@@ -83,8 +83,8 @@ namespace MaketUP
             string login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text, @"\s +", " ").Trim();
             string password = System.Text.RegularExpressions.Regex.Replace(guna2TextBox3.Text, @"\s +", " ").Trim();
             
-            ClassStorage.selectedLogin = login;
-            ClassStorage.selectedPassword = password;
+            ClassStorage.authlogin = login;
+            ClassStorage.authpassword = password;
             string Role;
             //ПРОДУМАТЬ ВХОД С НОМЕРОМ И ПОЧТОЙ,ТАК КАК ТАМ НЕ ВВОДЯТ "АДМИН",СКОРЕЕ ВСЕГО С ПОМОЩЬЮ ЗАПРОСА
             if (login.ToLower().Contains("admin"))
@@ -232,8 +232,8 @@ namespace MaketUP
                     string query = "UPDATE Администратор SET Последний_вход = @date WHERE Логин = @login AND Пароль = @password ;";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
-                        cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                        cmd.Parameters.AddWithValue("@login", ClassStorage.authlogin);
+                        cmd.Parameters.AddWithValue("@password", ClassStorage.authpassword);
                         cmd.Parameters.AddWithValue("@date", ClassStorage.last_auth);
                         int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -241,8 +241,8 @@ namespace MaketUP
                     string query2 = "UPDATE Администратор SET Неверный_пароль_счетчик = @count_password WHERE Логин = @login AND Пароль = @password ;";
                     using (NpgsqlCommand cmd = new NpgsqlCommand(query2, conn))
                     {
-                        cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
-                        cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                        cmd.Parameters.AddWithValue("@login", ClassStorage.authlogin);
+                        cmd.Parameters.AddWithValue("@password", ClassStorage.authpassword);
                         cmd.Parameters.AddWithValue("@count_password", ClassStorage.countWrondPassword);
                         int rowsAffected = cmd.ExecuteNonQuery();
                         ClassStorage.countWrondPassword = 0;
