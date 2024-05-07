@@ -379,7 +379,7 @@ namespace MaketUP
             {
                 conn.Open();
 
-                string query = "SELECT Логин,Пароль,Почта,Номер_телефона,Роль FROM Администратор WHERE Логин = @login AND Пароль = @password ;";
+                string query = "SELECT Логин,Пароль,Почта,Номер_телефона,Роль FROM Администратор WHERE (Номер_телефона = @login AND Пароль = @password)  OR (Почта = @login AND Пароль = @password) OR (Логин = @login AND Пароль = @password) ;";
                 using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@login", ClassStorage.authlogin);

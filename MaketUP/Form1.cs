@@ -90,7 +90,6 @@ namespace MaketUP
             ClassStorage.authlogin = login;
             ClassStorage.authpassword = password;
             string Role;
-            //ПРОДУМАТЬ ВХОД С НОМЕРОМ И ПОЧТОЙ,ТАК КАК ТАМ НЕ ВВОДЯТ "АДМИН",СКОРЕЕ ВСЕГО С ПОМОЩЬЮ ЗАПРОСА
             if (login.ToLower().Contains("admin"))
             {
                 Role = "admin";
@@ -167,8 +166,14 @@ namespace MaketUP
                                     {
                                         cmd3.Parameters.AddWithValue("@login", login);
                                         cmd3.Parameters.AddWithValue("@password", password);
-                                        object role = cmd3.ExecuteNonQuery(); /////////////
-                                        ClassStorage.role = Convert.ToString(role);
+                                        using (NpgsqlDataReader reader = cmd3.ExecuteReader())
+                                        {
+                                            if (reader.Read())
+                                            {
+                                                string role = reader.GetString(0);
+                                                ClassStorage.role = Convert.ToString(System.Text.RegularExpressions.Regex.Replace(role, @"\s +", " ").Trim());
+                                            }
+                                        }
 
 
                                     }
@@ -198,11 +203,17 @@ namespace MaketUP
                                                 string query4 = "SELECT Роль FROM Администратор WHERE Почта=@login AND Пароль=@password";
                                                 using (NpgsqlCommand cmd4 = new NpgsqlCommand(query4, conn3))
                                                 {
-                                                    
                                                     cmd4.Parameters.AddWithValue("@login", login);
-                                                    cmd4.Parameters.AddWithValue("@password", password);
-                                                    object role = cmd4.ExecuteNonQuery(); /////////////
-                                                    ClassStorage.role = Convert.ToString(role);
+                                                    cmd4.Parameters.AddWithValue("@password", password); 
+                                                    using (NpgsqlDataReader reader = cmd4.ExecuteReader())
+                                                    {
+                                                        if (reader.Read())
+                                                        {
+                                                            string role = reader.GetString(0);
+                                                            ClassStorage.role = Convert.ToString(System.Text.RegularExpressions.Regex.Replace(role, @"\s +", " ").Trim());
+                                                        }
+                                                    } 
+                                                    
 
 
                                                 }
