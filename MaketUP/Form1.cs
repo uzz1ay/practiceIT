@@ -23,15 +23,18 @@ namespace MaketUP
         {
             InitializeComponent();
 
-            guna2TextBox2.Text = ClassStorage.login;
-            guna2TextBox3.Text = ClassStorage.password;
+            /*guna2TextBox2.Text = ClassStorage.login;
+            guna2TextBox3.Text = ClassStorage.password;*/
             if (guna2TextBox3.Text == "" || guna2TextBox2.Text == "")
             {
                 // Установка текстовых подсказок
                 HintManager.SetHint(guna2TextBox2, "Введите логин");
             }
-            
 
+            if (ClassStorage.login!=null && ClassStorage.password != null)
+            {
+                guna2Panel2.Visible = true;
+            }
 
             animatedButton1 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton2 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
@@ -50,6 +53,7 @@ namespace MaketUP
         private void Form1_Load(object sender, EventArgs e)
         {
             guna2TextBox3.UseSystemPasswordChar = true;
+            
 
         }
 
@@ -260,7 +264,7 @@ namespace MaketUP
 
         private void guna2Panel2_Click(object sender, EventArgs e)
         {
-            ClassStorage.role = "admin";
+            
             this.Hide();
             FormMenu form = new FormMenu();
             Closed += (s, args) => this.Close();

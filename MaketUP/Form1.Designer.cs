@@ -54,13 +54,13 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2CustomCheckBox1 = new Guna.UI2.WinForms.Guna2CustomCheckBox();
             this.guna2TextBox3 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2CustomCheckBox1 = new Guna.UI2.WinForms.Guna2CustomCheckBox();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -273,6 +273,7 @@
             this.guna2Panel1.ShadowDecoration.BorderRadius = 0;
             this.guna2Panel1.Size = new System.Drawing.Size(187, 214);
             this.guna2Panel1.TabIndex = 11;
+            this.guna2Panel1.Visible = false;
             // 
             // label4
             // 
@@ -313,6 +314,7 @@
             this.guna2Panel2.ShadowDecoration.BorderRadius = 0;
             this.guna2Panel2.Size = new System.Drawing.Size(187, 214);
             this.guna2Panel2.TabIndex = 11;
+            this.guna2Panel2.Visible = false;
             this.guna2Panel2.Click += new System.EventHandler(this.guna2Panel2_Click);
             // 
             // label10
@@ -356,6 +358,7 @@
             this.guna2Panel3.ShadowDecoration.BorderRadius = 0;
             this.guna2Panel3.Size = new System.Drawing.Size(187, 214);
             this.guna2Panel3.TabIndex = 11;
+            this.guna2Panel3.Visible = false;
             // 
             // label9
             // 
@@ -448,6 +451,25 @@
             this.guna2Panel5.Size = new System.Drawing.Size(414, 631);
             this.guna2Panel5.TabIndex = 11;
             // 
+            // guna2CustomCheckBox1
+            // 
+            this.guna2CustomCheckBox1.Animated = true;
+            this.guna2CustomCheckBox1.CheckedState.BorderColor = System.Drawing.Color.Lime;
+            this.guna2CustomCheckBox1.CheckedState.BorderRadius = 2;
+            this.guna2CustomCheckBox1.CheckedState.BorderThickness = 0;
+            this.guna2CustomCheckBox1.CheckedState.FillColor = System.Drawing.Color.Lime;
+            this.guna2CustomCheckBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2CustomCheckBox1.ForeColor = System.Drawing.Color.White;
+            this.guna2CustomCheckBox1.Location = new System.Drawing.Point(28, 301);
+            this.guna2CustomCheckBox1.Name = "guna2CustomCheckBox1";
+            this.guna2CustomCheckBox1.Size = new System.Drawing.Size(25, 25);
+            this.guna2CustomCheckBox1.TabIndex = 16;
+            this.guna2CustomCheckBox1.Text = "Запомнить меня";
+            this.guna2CustomCheckBox1.UncheckedState.BorderColor = System.Drawing.Color.White;
+            this.guna2CustomCheckBox1.UncheckedState.BorderRadius = 2;
+            this.guna2CustomCheckBox1.UncheckedState.BorderThickness = 1;
+            this.guna2CustomCheckBox1.UncheckedState.FillColor = System.Drawing.Color.White;
+            // 
             // guna2TextBox3
             // 
             this.guna2TextBox3.BackColor = System.Drawing.Color.Transparent;
@@ -509,6 +531,21 @@
             this.guna2TextBox2.TabIndex = 15;
             this.guna2TextBox2.TabStop = false;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 16F);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(58, 301);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(193, 25);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Запомнить меня";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -559,40 +596,6 @@
             this.guna2TextBox1.ShadowDecoration.BorderRadius = 0;
             this.guna2TextBox1.Size = new System.Drawing.Size(786, 99);
             this.guna2TextBox1.TabIndex = 14;
-            // 
-            // guna2CustomCheckBox1
-            // 
-            this.guna2CustomCheckBox1.Animated = true;
-            this.guna2CustomCheckBox1.CheckedState.BorderColor = System.Drawing.Color.Lime;
-            this.guna2CustomCheckBox1.CheckedState.BorderRadius = 2;
-            this.guna2CustomCheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CustomCheckBox1.CheckedState.FillColor = System.Drawing.Color.Lime;
-            this.guna2CustomCheckBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.guna2CustomCheckBox1.ForeColor = System.Drawing.Color.White;
-            this.guna2CustomCheckBox1.Location = new System.Drawing.Point(28, 301);
-            this.guna2CustomCheckBox1.Name = "guna2CustomCheckBox1";
-            this.guna2CustomCheckBox1.Size = new System.Drawing.Size(25, 25);
-            this.guna2CustomCheckBox1.TabIndex = 16;
-            this.guna2CustomCheckBox1.Text = "Запомнить меня";
-            this.guna2CustomCheckBox1.UncheckedState.BorderColor = System.Drawing.Color.White;
-            this.guna2CustomCheckBox1.UncheckedState.BorderRadius = 2;
-            this.guna2CustomCheckBox1.UncheckedState.BorderThickness = 1;
-            this.guna2CustomCheckBox1.UncheckedState.FillColor = System.Drawing.Color.White;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 16F);
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(58, 301);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(193, 25);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "Запомнить меня";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // Form1
             // 
