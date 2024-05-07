@@ -357,6 +357,13 @@ namespace MaketUP
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormCaptcha form = new FormCaptcha();
+            form.Show();
+        }
+
         private string connectionString = "Server = localhost;port = 5432;username=postgres;password=123;database=postgres";
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -402,7 +409,15 @@ namespace MaketUP
             guna2HtmlLabel9.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.login, @"\s +", " ").Trim();
             guna2HtmlLabel12.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.mail, @"\s +", " ").Trim();
             guna2HtmlLabel13.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.phone, @"\s +", " ").Trim();
-            guna2HtmlLabel10.Text = "       ********";//ClassStorage.password;
+            if(ClassStorage.capctha = false)
+            {
+                guna2HtmlLabel10.Text = "       ********";
+            }
+            else
+            {
+                guna2HtmlLabel10.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.password, @"\s +", " ").Trim();
+            }
+            
             guna2HtmlLabel11.Text = System.Text.RegularExpressions.Regex.Replace(ClassStorage.role, @"\s +", " ").Trim();
 
         }
@@ -433,6 +448,7 @@ namespace MaketUP
             animatedButton11 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton22 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton33 = new AnimatedButton(button3, Color.FromArgb(130, 6, 255), Color.White);
+            animatedButton44 = new AnimatedButton(button4, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton55 = new AnimatedButton(button5, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton66 = new AnimatedButton(button6, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton77 = new AnimatedButton(button7, Color.FromArgb(130, 6, 255), Color.White);

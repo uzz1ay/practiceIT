@@ -23,5 +23,6 @@ namespace MaketUP
         public static string selectedRole;
         public static int countWrondPassword;
         public static string last_auth;
+        public static bool capctha = false;
     }
 }
