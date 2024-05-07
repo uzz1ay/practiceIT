@@ -30,8 +30,6 @@ namespace MaketUP
         {
             guna2Panel2.Visible = true;
             guna2Panel3.Visible = false;
-            LoadData();
-            guna2DataGridView1.CellClick += DataGridView_CellClick;
             if(ClassStorage.role == "admin")
             {
                 guna2HtmlLabel6.Text += "Администратор";
@@ -47,8 +45,7 @@ namespace MaketUP
             using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM Администратор;";
-                using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(query, conn))
+                using (NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(comboboxQuery, conn))
                 {
                     DataTable table = new DataTable();
                     adapter.Fill(table);
@@ -63,18 +60,26 @@ namespace MaketUP
         {
             if(e.RowIndex >= 0)
             {
-                DataGridViewRow row = guna2DataGridView1.Rows[e.RowIndex];
-                string login = System.Text.RegularExpressions.Regex.Replace(row.Cells["Логин"].Value.ToString(), @"\s +", " ").Trim();
-                ClassStorage.selectedLogin = login;
-                string password = System.Text.RegularExpressions.Regex.Replace(row.Cells["Пароль"].Value.ToString(), @"\s +", " ").Trim();
-                ClassStorage.selectedPassword = password;
-                string phone_number = System.Text.RegularExpressions.Regex.Replace(row.Cells["Номер_телефона"].Value.ToString(), @"\s +", " ").Trim();
-                ClassStorage.selectedPhone = phone_number;
-                string mail = System.Text.RegularExpressions.Regex.Replace(row.Cells["Почта"].Value.ToString(), @"\s +", " ").Trim();
-                ClassStorage.selectedMail = mail;
-                string role = System.Text.RegularExpressions.Regex.Replace(row.Cells["Роль"].Value.ToString(), @"\s +", " ").Trim();
-                ClassStorage.selectedRole= role;
-                MessageBox.Show($"Пользователь с логином {login} был выбран");
+                if(guna2ComboBox1.Text == "Администратор")
+                {
+                    DataGridViewRow row = guna2DataGridView1.Rows[e.RowIndex];
+                    string login = System.Text.RegularExpressions.Regex.Replace(row.Cells["Логин"].Value.ToString(), @"\s +", " ").Trim();
+                    ClassStorage.selectedLogin = login;
+                    string password = System.Text.RegularExpressions.Regex.Replace(row.Cells["Пароль"].Value.ToString(), @"\s +", " ").Trim();
+                    ClassStorage.selectedPassword = password;
+                    string phone_number = System.Text.RegularExpressions.Regex.Replace(row.Cells["Номер_телефона"].Value.ToString(), @"\s +", " ").Trim();
+                    ClassStorage.selectedPhone = phone_number;
+                    string mail = System.Text.RegularExpressions.Regex.Replace(row.Cells["Почта"].Value.ToString(), @"\s +", " ").Trim();
+                    ClassStorage.selectedMail = mail;
+                    string role = System.Text.RegularExpressions.Regex.Replace(row.Cells["Роль"].Value.ToString(), @"\s +", " ").Trim();
+                    ClassStorage.selectedRole = role;
+                    MessageBox.Show($"Пользователь с логином {login} был выбран");
+                }
+                else
+                {
+                    //обработчик кнопок для других таблиц
+                }
+                
             }
         }
 
@@ -147,7 +152,7 @@ namespace MaketUP
 
         private void button9_Click(object sender, EventArgs e)
         {
-            /*using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+            using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
             {
                 conn.Open();
 
@@ -156,7 +161,6 @@ namespace MaketUP
                 {
                     cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
                     cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
-                    cmd.Parameters.AddWithValue("@date", ClassStorage.last_auth);
                     string countpassword = cmd.ExecuteScalar().ToString();
                     ClassStorage.countWrondPassword = Convert.ToInt32(countpassword);
                     
@@ -164,8 +168,95 @@ namespace MaketUP
 
 
                 conn.Close();
-            }*/
+            }
             MessageBox.Show($"Количество неправильно введеных паролей для этого пользователя = {ClassStorage.countWrondPassword}");
+        }
+        private string comboboxQuery;
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string text = guna2ComboBox1.Text;
+            switch (text)
+            {
+                case "Администратор":
+                    comboboxQuery = "SELECT Логин, Пароль,Номер_телефона,Почта,Роль FROM Администратор";
+                    button5.Visible = true;
+                    button6.Visible = true;
+                    button7.Visible = true;
+                    button8.Visible = true;
+                    button9.Visible = true;
+                    LoadData();
+                    break;
+                case "Заготовка":
+                    comboboxQuery = "SELECT * FROM Заготовка";
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    button7.Visible = false;
+                    button8.Visible = false;
+                    button9.Visible = false;
+                    LoadData();
+                    break;
+                case "Изделие":
+                    comboboxQuery = "SELECT * FROM Изделие";
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    button7.Visible = false;
+                    button8.Visible = false;
+                    button9.Visible = false;
+                    LoadData();
+                    break;
+                case "Клиент":
+                    comboboxQuery = "SELECT * FROM Клиент";
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    button7.Visible = false;
+                    button8.Visible = false;
+                    button9.Visible = false;
+                    LoadData();
+                    break;
+                case "Материал":
+                    comboboxQuery = "SELECT * FROM Материал";
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    button7.Visible = false;
+                    button8.Visible = false;
+                    button9.Visible = false;
+                    LoadData();
+                    break;
+                case "Обработка":
+                    comboboxQuery = "SELECT * FROM Обработка";
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    button7.Visible = false;
+                    button8.Visible = false;
+                    button9.Visible = false;
+                    LoadData();
+                    break;
+                case "Поставка_материал":
+                    comboboxQuery = "SELECT * FROM Поставка_материал";
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    button7.Visible = false;
+                    button8.Visible = false;
+                    button9.Visible = false;
+                    LoadData();
+                    break;
+                case "Поставщик":
+                    comboboxQuery = "SELECT * FROM Поставщик";
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    button7.Visible = false;
+                    button8.Visible = false;
+                    button9.Visible = false;
+                    LoadData();
+                    break;
+
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            comboboxQuery = "SELECT Последний_вход FROM Администратор";
+            LoadData();
         }
 
         private string connectionString = "Server = localhost;port = 5432;username=postgres;password=123;database=postgres";
@@ -179,6 +270,7 @@ namespace MaketUP
         {
             guna2Panel2.Visible = false;
             guna2Panel3.Visible = true;
+            /*guna2HtmlLabel2.Text = */
         }
 
 
@@ -188,7 +280,9 @@ namespace MaketUP
         public FormMenu()
         {
             InitializeComponent();
-            
+
+            guna2DataGridView1.CellClick += DataGridView_CellClick;
+
             animatedButton1 = new AnimatedGunoButton(guna2Button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton2 = new AnimatedGunoButton(guna2Button2, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton3 = new AnimatedGunoButton(guna2Button3, Color.FromArgb(130, 6, 255), Color.White);
@@ -205,7 +299,6 @@ namespace MaketUP
             animatedButton11 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton22 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton33 = new AnimatedButton(button3, Color.FromArgb(130, 6, 255), Color.White);
-            animatedButton44 = new AnimatedButton(button4, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton55 = new AnimatedButton(button5, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton66 = new AnimatedButton(button6, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton77 = new AnimatedButton(button7, Color.FromArgb(130, 6, 255), Color.White);

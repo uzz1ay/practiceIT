@@ -41,7 +41,6 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -58,6 +57,9 @@
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel8 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -191,13 +193,14 @@
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.BorderRadius = 10;
+            this.guna2Panel2.Controls.Add(this.guna2ComboBox1);
             this.guna2Panel2.Controls.Add(this.guna2DataGridView1);
-            this.guna2Panel2.Controls.Add(this.button4);
             this.guna2Panel2.Controls.Add(this.button9);
             this.guna2Panel2.Controls.Add(this.button8);
             this.guna2Panel2.Controls.Add(this.button7);
             this.guna2Panel2.Controls.Add(this.button5);
             this.guna2Panel2.Controls.Add(this.button6);
+            this.guna2Panel2.Controls.Add(this.guna2HtmlLabel7);
             this.guna2Panel2.Controls.Add(this.guna2HtmlLabel6);
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
             this.guna2Panel2.Location = new System.Drawing.Point(349, 27);
@@ -217,7 +220,6 @@
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -276,24 +278,6 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(102, 66);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(347, 45);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Просмотреть пользователей";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
@@ -303,7 +287,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(449, 156);
+            this.button9.Location = new System.Drawing.Point(450, 227);
             this.button9.Margin = new System.Windows.Forms.Padding(0);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(347, 45);
@@ -322,7 +306,7 @@
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(449, 111);
+            this.button8.Location = new System.Drawing.Point(450, 182);
             this.button8.Margin = new System.Windows.Forms.Padding(0);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(347, 45);
@@ -330,6 +314,7 @@
             this.button8.Text = "История входов";
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -340,7 +325,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(449, 66);
+            this.button7.Location = new System.Drawing.Point(450, 137);
             this.button7.Margin = new System.Windows.Forms.Padding(0);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(347, 45);
@@ -359,7 +344,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(102, 156);
+            this.button5.Location = new System.Drawing.Point(103, 227);
             this.button5.Margin = new System.Windows.Forms.Padding(0);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(347, 45);
@@ -378,7 +363,7 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(102, 111);
+            this.button6.Location = new System.Drawing.Point(103, 182);
             this.button6.Margin = new System.Windows.Forms.Padding(0);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(347, 45);
@@ -409,6 +394,7 @@
             this.guna2Panel3.Controls.Add(this.button1);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel4);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel3);
+            this.guna2Panel3.Controls.Add(this.guna2HtmlLabel8);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel5);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel2);
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel1);
@@ -451,7 +437,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(250, 58);
             this.button2.TabIndex = 12;
-            this.button2.Text = "История входов";
+            this.button2.Text = "Редактировать профиль";
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
@@ -541,6 +527,57 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 10;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Items.AddRange(new object[] {
+            "Администратор",
+            "Заготовка",
+            "Заказ",
+            "Изделие",
+            "Клиент",
+            "Материал",
+            "Обработка",
+            "Поставка_материал",
+            "Поставщик"});
+            this.guna2ComboBox1.Location = new System.Drawing.Point(106, 146);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(344, 36);
+            this.guna2ComboBox1.TabIndex = 17;
+            this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
+            // 
+            // guna2HtmlLabel7
+            // 
+            this.guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel7.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel7.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel7.Location = new System.Drawing.Point(106, 110);
+            this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(202, 30);
+            this.guna2HtmlLabel7.TabIndex = 2;
+            this.guna2HtmlLabel7.Text = "Выбор таблицы:";
+            // 
+            // guna2HtmlLabel8
+            // 
+            this.guna2HtmlLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.guna2HtmlLabel8.ForeColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel8.Location = new System.Drawing.Point(276, 386);
+            this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(10, 25, 3, 25);
+            this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(51, 26);
+            this.guna2HtmlLabel8.TabIndex = 1;
+            this.guna2HtmlLabel8.Text = "Роль";
+            // 
             // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,8 +586,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1265, 666);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel3);
+            this.Controls.Add(this.guna2Panel2);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(6)))), ((int)(((byte)(255)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -589,12 +626,14 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel7;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel8;
     }
 }

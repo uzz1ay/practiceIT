@@ -19,7 +19,6 @@ namespace MaketUP
         public FormRegistration()
         {
             InitializeComponent();
-            //ДОБАВИТЬ ПРОВЕРКИ ДЛЯ НОМЕРОВ ТЕЛЕФОНОВ И ПОЧТЫ
 
             animatedButton1 = new AnimatedButton(button1, Color.FromArgb(130, 6, 255), Color.White);
             animatedButton2 = new AnimatedButton(button2, Color.FromArgb(130, 6, 255), Color.White);
@@ -56,52 +55,66 @@ namespace MaketUP
                 }
                 else if(input.Length >= 6 && Regex.IsMatch(input, @"[a-zA-Za-яА-Я0-9-\w\W]+$"))
                 {
-                    
-                    using (NpgsqlConnection conn3 = new NpgsqlConnection(connectionString))
+                    if (Mail.ToLower().Contains("@gmail.com"))
                     {
-                        conn3.Open();
-                        string query3 = "SELECT EXISTS(SELECT * FROM Администратор WHERE Номер_телефона=@Phone OR Почта=@Mail OR Логин=@Login)";
-                        using (NpgsqlCommand cmd3 = new NpgsqlCommand(query3, conn3))
+                        if(Phone.Length < 13 && Phone.Contains("79"))
                         {
-                            cmd3.Parameters.AddWithValue("@Login", Login);
-                            cmd3.Parameters.AddWithValue("@Phone", Phone);
-                            cmd3.Parameters.AddWithValue("@Mail", Mail);
-                            bool result3 = (bool)cmd3.ExecuteScalar();
-                            if (result3)
+                            using (NpgsqlConnection conn3 = new NpgsqlConnection(connectionString))
                             {
-                                MessageBox.Show("Пользователь с данным логином/почтой/телефоном занят");
-                            }
-                            else
-                            {
-                                using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
+                                conn3.Open();
+                                string query3 = "SELECT EXISTS(SELECT * FROM Администратор WHERE Номер_телефона=@Phone OR Почта=@Mail OR Логин=@Login)";
+                                using (NpgsqlCommand cmd3 = new NpgsqlCommand(query3, conn3))
                                 {
-                                    conn.Open();
-                                    string query = "INSERT INTO Администратор (Логин,Пароль,Номер_телефона,Почта,Роль) VALUES (@Login,@Password,@Phone,@Mail,@Role);";
-                                    using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                                    cmd3.Parameters.AddWithValue("@Login", Login);
+                                    cmd3.Parameters.AddWithValue("@Phone", Phone);
+                                    cmd3.Parameters.AddWithValue("@Mail", Mail);
+                                    bool result3 = (bool)cmd3.ExecuteScalar();
+                                    if (result3)
                                     {
-                                        cmd.Parameters.AddWithValue("@Login", Login);
-                                        cmd.Parameters.AddWithValue("@Password", Password);
-                                        cmd.Parameters.AddWithValue("@Phone", Phone);
-                                        cmd.Parameters.AddWithValue("@Mail", Mail);
-                                        cmd.Parameters.AddWithValue("@Role", Role);
-                                        int rowsAffected = cmd.ExecuteNonQuery();
-                                        if (rowsAffected > 0)
+                                        MessageBox.Show("Пользователь с данным логином/почтой/телефоном занят");
+                                    }
+                                    else
+                                    {
+                                        using (NpgsqlConnection conn = new NpgsqlConnection(connectionString))
                                         {
-                                            MessageBox.Show("Пользователь добавлен!");
-                                            this.Hide();
-                                            Form1 form = new Form1();
-                                            Closed += (s, args) => this.Close();
-                                            form.Show();
-                                        }
-                                        else
-                                        {
-                                            MessageBox.Show("Не удалось добавить пользователя!");
+                                            conn.Open();
+                                            string query = "INSERT INTO Администратор (Логин,Пароль,Номер_телефона,Почта,Роль) VALUES (@Login,@Password,@Phone,@Mail,@Role);";
+                                            using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
+                                            {
+                                                cmd.Parameters.AddWithValue("@Login", Login);
+                                                cmd.Parameters.AddWithValue("@Password", Password);
+                                                cmd.Parameters.AddWithValue("@Phone", Phone);
+                                                cmd.Parameters.AddWithValue("@Mail", Mail);
+                                                cmd.Parameters.AddWithValue("@Role", Role);
+                                                int rowsAffected = cmd.ExecuteNonQuery();
+                                                if (rowsAffected > 0)
+                                                {
+                                                    MessageBox.Show("Пользователь добавлен!");
+                                                    this.Hide();
+                                                    Form1 form = new Form1();
+                                                    Closed += (s, args) => this.Close();
+                                                    form.Show();
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Не удалось добавить пользователя!");
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("Некорректный номер телефона");
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("Некорректный почтовый адрес");
+                    }
+                        
                 }
             }
             else

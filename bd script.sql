@@ -1,6 +1,6 @@
 --пересоздать
---DROP SCHEMA public CASCADE;
---CREATE SCHEMA public;
+ DROP SCHEMA public CASCADE;
+ CREATE SCHEMA public;
 
 --сброс счетчиков
 do $$DECLARE
@@ -113,8 +113,15 @@ CREATE TABLE Обработка
 CREATE TABLE Администратор
 (Код_администратор int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
  Логин char(50) NOT NULL,
- Пароль char(50) NOT NULL
+ Пароль char(50) NOT NULL,
+ Номер_телефона char(30) NOT NULL,
+ Почта char(50) NOT NULL,
+ Последний_вход timestamp ,
+ Неверный_пароль_счетчик int,
+ Роль char(20) 
 );
+
+Select * from Администратор;
 --------------------------ТРИГГЕРЫ
 --1.Конвертировать количество материала в Количество_в_листах
 CREATE OR REPLACE FUNCTION update_material_quantity_material()

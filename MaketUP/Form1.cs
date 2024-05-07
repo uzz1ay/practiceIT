@@ -82,9 +82,7 @@ namespace MaketUP
             
             string login = System.Text.RegularExpressions.Regex.Replace(guna2TextBox2.Text, @"\s +", " ").Trim();
             string password = System.Text.RegularExpressions.Regex.Replace(guna2TextBox3.Text, @"\s +", " ").Trim();
-            DateTime last_auth = DateTime.Now;
-            string formated_last_auth = last_auth.ToString("yyyy-MM-dd HH:mm:ss");
-            ClassStorage.last_auth = formated_last_auth; 
+            
             ClassStorage.selectedLogin = login;
             ClassStorage.selectedPassword = password;
             string Role;
@@ -99,7 +97,7 @@ namespace MaketUP
                 Role = "user";
                 ClassStorage.role = "user";
             }
-            if (checkBox1.Checked)
+            if (guna2CustomCheckBox1.Checked)
             {
                 ClassStorage.login = login;
                 ClassStorage.password = password;
@@ -125,6 +123,9 @@ namespace MaketUP
                                 bool result2 = (bool)cmd2.ExecuteScalar();
                                 if (result2)
                                 {
+                                    DateTime last_auth = DateTime.Now;
+                                    string formated_last_auth = last_auth.ToString("yyyy-MM-dd HH:mm:ss");
+                                    ClassStorage.last_auth = formated_last_auth;
                                     lastAuth();
                                     MessageBox.Show("Авторизовано!");
                                     this.Hide();
@@ -153,7 +154,20 @@ namespace MaketUP
                                 bool result2 = (bool)cmd2.ExecuteScalar();
                                 if (result2)
                                 {
+                                    DateTime last_auth = DateTime.Now;
+                                    string formated_last_auth = last_auth.ToString("yyyy-MM-dd HH:mm:ss");
+                                    ClassStorage.last_auth = formated_last_auth;
                                     lastAuth();
+                                    string query3 = "SELECT Роль FROM Администратор WHERE Номер_телефона=@login AND Пароль=@password";
+                                    using (NpgsqlCommand cmd3 = new NpgsqlCommand(query3, conn2))
+                                    {
+                                        cmd3.Parameters.AddWithValue("@login", login);
+                                        cmd3.Parameters.AddWithValue("@password", password);
+                                        object role = cmd3.ExecuteNonQuery(); /////////////
+                                        ClassStorage.role = Convert.ToString(role);
+
+
+                                    }
                                     MessageBox.Show("Авторизовано!");
                                     this.Hide();
                                     FormMenu form = new FormMenu();
@@ -173,7 +187,21 @@ namespace MaketUP
                                             bool result3 = (bool)cmd3.ExecuteScalar();
                                             if (result3)
                                             {
+                                                DateTime last_auth = DateTime.Now;
+                                                string formated_last_auth = last_auth.ToString("yyyy-MM-dd HH:mm:ss");
+                                                ClassStorage.last_auth = formated_last_auth;
                                                 lastAuth();
+                                                string query4 = "SELECT Роль FROM Администратор WHERE Почта=@login AND Пароль=@password";
+                                                using (NpgsqlCommand cmd4 = new NpgsqlCommand(query4, conn3))
+                                                {
+                                                    
+                                                    cmd4.Parameters.AddWithValue("@login", login);
+                                                    cmd4.Parameters.AddWithValue("@password", password);
+                                                    object role = cmd4.ExecuteNonQuery(); /////////////
+                                                    ClassStorage.role = Convert.ToString(role);
+
+
+                                                }
                                                 MessageBox.Show("Авторизовано!");
                                                 conn.Close();
                                                 this.Hide();
@@ -207,20 +235,19 @@ namespace MaketUP
                         cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
                         cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
                         cmd.Parameters.AddWithValue("@date", ClassStorage.last_auth);
-                        cmd.Parameters.AddWithValue("@count_password", ClassStorage.countWrondPassword); 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
                     }
-                string query2 = "UPDATE Администратор SET Неверный_пароль_счетчик = @count_password WHERE Логин = @login AND Пароль = @password ;";
-                using (NpgsqlCommand cmd = new NpgsqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
-                    cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
-                    cmd.Parameters.AddWithValue("@date", ClassStorage.last_auth);
-                    cmd.Parameters.AddWithValue("@count_password", ClassStorage.countWrondPassword);
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    string query2 = "UPDATE Администратор SET Неверный_пароль_счетчик = @count_password WHERE Логин = @login AND Пароль = @password ;";
+                    using (NpgsqlCommand cmd = new NpgsqlCommand(query2, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@login", ClassStorage.selectedLogin);
+                        cmd.Parameters.AddWithValue("@password", ClassStorage.selectedPassword);
+                        cmd.Parameters.AddWithValue("@count_password", ClassStorage.countWrondPassword);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        ClassStorage.countWrondPassword = 0;
 
-                }
+                    }
 
 
                 conn.Close();
@@ -238,6 +265,18 @@ namespace MaketUP
             FormMenu form = new FormMenu();
             Closed += (s, args) => this.Close();
             form.Show();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            if(guna2CustomCheckBox1.Checked == true)
+            {
+                guna2CustomCheckBox1.Checked = false;
+            }
+            else if (guna2CustomCheckBox1.Checked == false)
+            {
+                guna2CustomCheckBox1.Checked = true;
+            }
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
